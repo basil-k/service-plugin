@@ -17,11 +17,11 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath group: 'com.libzl', name: "gradle_plugin",
+        classpath group: 'com.libzl', name: "service_plugin",
                 version: '0.1-SNAPSHOT'
     }
 }
-apply plugin: 'com.libzl.services'
+apply plugin: 'services'
 
 service.type = "com.libzl.common.service.Service"
 
