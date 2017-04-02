@@ -1,0 +1,36 @@
+apply plugin: 'groovy'
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group 'com.libzl'
+version '0.1-SNAPSHOT'
+
+repositories {
+
+    jcenter()
+}
+
+buildscript {
+    repositories{
+        mavenLocal()
+    }
+    dependencies {
+        classpath group: 'com.libzl', name: "gradle_plugin",
+                version: '0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'com.libzl.services'
+
+service.type = "com.libzl.common.service.Service"
+
+service {
+    main = "com.libzl.gradle.plugin.ServiceLocatorPlugin"
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+
+}
